@@ -2,6 +2,7 @@ lg=love.graphics
 
 
 function love.load()
+    require('lib.require')
     conf=require('config')
 
     shove=require('lib.shove')
@@ -16,17 +17,18 @@ function love.load()
     }
     lg.setFont(fonts.monogram)
 
-    shove.createLayer("example")
+    
+    states=require.tree('states')
+
+    gs=require('lib.hump.gamestate')
+    gs.registerEvents()
+    gs.switch(states.example)
 end
 
-function love.update()
+function love.update(dt)
 
 end
 
 function love.draw()
-    shove.beginDraw()
-        shove.beginLayer("example")
-            lg.print("Hello world!")
-        shove.endLayer()
-    shove.endDraw()
+    
 end
