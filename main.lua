@@ -13,9 +13,10 @@ function love.load()
     assets=require('lib.cargo').init('assets')
 
     fonts={
-        monogram=assets.fonts.monogram.monogram(16)
+        monogram=assets.fonts.monogram.monogram(16),
+        pixel=lg.newImageFont("assets/fonts/pixel/round_6x6.png",[==[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()[]{}<>/*:#%!?.,'"@&$ ]==],1)
     }
-    lg.setFont(fonts.monogram)
+    lg.setFont(fonts.pixel)
 
     
     states=require.tree('states')
